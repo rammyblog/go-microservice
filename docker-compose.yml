@@ -1,6 +1,20 @@
 version: '3'
 
 services:
+
+  front-end:
+    build:
+      context: ./front-end
+      dockerfile: front-end.Dockerfile
+    restart: always
+    ports:
+      - '7001:80'
+    deploy:
+      mode: replicated
+      replicas: 1
+    environment:
+      - BROKER_URL=http://backend
+      
   broker-service:
     build:
       context: ./broker-service
@@ -31,7 +45,7 @@ services:
       dockerfile: authentication-service.Dockerfile
     restart: always
     ports:
-      - '8081:80'
+      - '8086:80'
     deploy:
       mode: replicated
       replicas: 1
