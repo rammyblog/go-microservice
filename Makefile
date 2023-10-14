@@ -31,43 +31,43 @@ down:
 ## build_broker: builds the broker binary as a linux executable
 build_front_linux:
 	@echo "Building frontend binary..."
-	cd ./front-end && env GOOS=linux CGO_ENABLED=0 go build -o ${FRONT_BINARY} ./web
+	cd ./front-end && env GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o ${FRONT_BINARY} ./web
 	@echo "Done!"
 
 ## build_broker: builds the broker binary as a linux executable
 build_broker:
 	@echo "Building broker binary..."
-	cd ./broker-service && env GOOS=linux CGO_ENABLED=0 go build -o ${BROKER_BINARY} ./api
+	cd ./broker-service && env GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o ${BROKER_BINARY} ./api
 	@echo "Done!"
 
 ## build_logger: builds the logger binary as a linux executable
 build_logger:
 	@echo "Building logger binary..."
-	cd ./logger-service && env GOOS=linux CGO_ENABLED=0 go build -o ${LOGGER_BINARY} ./api
+	cd ./logger-service && env GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o ${LOGGER_BINARY} ./api
 	@echo "Done!"
 
 ## build_mailer: builds the mailer binary as a linux executable
 build_mailer:
 	@echo "Building mailer binary..."
-	cd ./mail-service && env GOOS=linux CGO_ENABLED=0 go build -o ${MAILER_BINARY} ./api
+	cd ./mail-service && env GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o ${MAILER_BINARY} ./api
 	@echo "Done!"
 
 ## build_listener: builds the listener binary as a linux executable
 build_listener:
 	@echo "Building listener binary..."
-	cd ./listener-service && env GOOS=linux CGO_ENABLED=0 go build -o ${LISTENER_BINARY} ./
+	cd ./listener-service && env GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o ${LISTENER_BINARY} ./
 	@echo "Done!"
 
 ## build_auth: builds the auth binary as a linux executable
 build_auth:
 	@echo "Building auth binary..."
-	cd ./authentication-service && env GOOS=linux CGO_ENABLED=0 go build -o ${AUTH_BINARY} ./api
+	cd ./authentication-service && env GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o ${AUTH_BINARY} ./api
 	@echo "Done!"
 
 ## build_front: builds the frone end binary
 build_front:
 	@echo "Building front end binary..."
-	cd ./front-end && env CGO_ENABLED=0 go build -o ${FRONT_END_BINARY} ./web
+	cd ./front-end && env CGO_ENABLED=0 GOARCH=amd64 go build -o ${FRONT_END_BINARY} ./web
 	@echo "Done!"
 
 ## start: starts the front end
