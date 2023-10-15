@@ -16,7 +16,6 @@ func main() {
 
 	log.Println(os.Getenv("BROKER_URL"))
 
-
 	fmt.Println("Starting front end service on port 8081")
 	err := http.ListenAndServe(":8081", nil)
 	if err != nil {
@@ -53,8 +52,6 @@ func render(w http.ResponseWriter, t string) {
 	}
 
 	data.BrokerURL = os.Getenv("BROKER_URL")
-
-	log.Println(data.BrokerURL)
 
 	if err := tmpl.ExecuteTemplate(w, "base", data); err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
